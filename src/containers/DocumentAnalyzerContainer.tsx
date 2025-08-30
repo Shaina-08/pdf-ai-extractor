@@ -115,54 +115,53 @@ const DocumentAnalyzerContainer: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-6 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Medical Document Analyzer
-          </h1>
-          <p className="text-lg text-gray-600">
-            Upload a medical document and extract patient information with AI
-          </p>
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-neutral-800 mb-2">
+          Medical Document Analyzer
+        </h1>
+        <p className="text-lg text-neutral-600">
+          Upload a medical document and extract patient information with AI
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="xl:col-span-2 space-y-6">
+          {!state.uploadedFile ? (
+            <DocumentUploader
+              onDrop={onDrop}
+              isDragActive={false}
+              isUploading={state.isUploading}
+              uploadedFile={state.uploadedFile}
+            />
+          ) : (
+            <DocumentPreview
+              filePreview={state.filePreview!}
+              uploadedFile={state.uploadedFile}
+              onAnalyze={analyzeDocument}
+              isAnalyzing={state.isAnalyzing}
+              onClose={handleClose}
+            />
+          )}
+
+          {state.error && <ErrorDisplay error={state.error} />}
+
+          {state.extractedData && (
+            <ExtractedDataDisplay
+              extractedData={state.extractedData}
+              originalText={state.originalText}
+              uploadedFile={state.uploadedFile}
+            />
+          )}
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-          <div className="xl:col-span-2 space-y-4">
-            {!state.uploadedFile ? (
-              <DocumentUploader
-                onDrop={onDrop}
-                isDragActive={false}
-                isUploading={state.isUploading}
-                uploadedFile={state.uploadedFile}
-              />
-            ) : (
-              <DocumentPreview
-                filePreview={state.filePreview!}
-                uploadedFile={state.uploadedFile}
-                onAnalyze={analyzeDocument}
-                isAnalyzing={state.isAnalyzing}
-                onClose={handleClose}
-              />
-            )}
-
-            {state.error && <ErrorDisplay error={state.error} />}
-
-            {state.extractedData && (
-              <ExtractedDataDisplay
-                extractedData={state.extractedData}
-                originalText={state.originalText}
-              />
-            )}
-          </div>
-
-          <div className="xl:col-span-1">
-            <div className="sticky top-6">
-              <Instructions
-                uploadedFile={state.uploadedFile}
-                isAnalyzing={state.isAnalyzing}
-                extractedData={state.extractedData}
-              />
-            </div>
+        <div className="xl:col-span-1">
+          <div className="sticky top-6">
+            <Instructions
+              uploadedFile={state.uploadedFile}
+              isAnalyzing={state.isAnalyzing}
+              extractedData={state.extractedData}
+            />
           </div>
         </div>
       </div>

@@ -12,8 +12,7 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = ({ onDrop, isUploading
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: onDropCallback,
     accept: {
-      'application/pdf': ['.pdf'],
-      'text/plain': ['.txt'],
+      'application/pdf': ['.pdf']
     },
     multiple: false,
   });
@@ -24,15 +23,15 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = ({ onDrop, isUploading
         {...getRootProps()}
         className={`border-2 border-dashed rounded-xl p-12 transition-all duration-200 cursor-pointer ${
           isDragActive
-            ? 'border-blue-400 bg-blue-50'
-            : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
+                    ? 'border-green-600 bg-green-50'
+        : 'border-gray-300 hover:border-green-600 hover:bg-gray-50'
         } ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}`}
       >
         <input {...getInputProps()} />
         
         {isUploading ? (
           <div className="space-y-4">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-800 mx-auto"></div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Uploading...</h3>
               <p className="text-gray-600">Please wait while we process your document</p>
@@ -53,9 +52,9 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = ({ onDrop, isUploading
           </div>
         ) : (
           <div className="space-y-4">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-              <span className="text-blue-600 text-2xl">📄</span>
-            </div>
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+          <span className="text-green-800 text-2xl">📄</span>
+        </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {isDragActive ? 'Drop your document here' : 'Upload Medical Document'}
@@ -67,10 +66,6 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = ({ onDrop, isUploading
                 <span className="flex items-center">
                   <span className="mr-1">📄</span>
                   PDF
-                </span>
-                <span className="flex items-center">
-                  <span className="mr-1">📄</span>
-                  TXT
                 </span>
               </div>
             </div>

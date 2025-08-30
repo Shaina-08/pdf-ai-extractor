@@ -1,4 +1,5 @@
 export interface ExtractedData {
+  fullText: string | null;
   patientName: string | null;
   dateOfBirth: string | null;
   patientId: string | null;
@@ -21,9 +22,9 @@ export interface NavbarProps {
 
 export interface DocumentUploaderProps {
   onDrop: (files: File[]) => void;
-  isDragActive: boolean;
   isUploading: boolean;
   uploadedFile: File | null;
+  isDragActive?: boolean;
 }
 
 export interface DocumentPreviewProps {
@@ -41,6 +42,7 @@ export interface AnalysisProgressProps {
 export interface ExtractedDataDisplayProps {
   extractedData: ExtractedData;
   originalText: string | null;
+  uploadedFile: File | null;
 }
 
 export interface ErrorDisplayProps {

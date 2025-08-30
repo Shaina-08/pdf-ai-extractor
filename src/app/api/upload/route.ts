@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     
     if (!supportedTypes.includes(file.type)) {
       return NextResponse.json(
-        { error: 'File type not supported. Please upload PDF, DOC, DOCX, or TXT files.' },
+        { error: 'File type not supported. Please upload PDF files.' },
         { status: 400 }
       );
     }
@@ -78,6 +78,7 @@ Search strategies:
 
 Return ONLY a valid JSON object in this exact format:
 {
+  "fullText": "Complete document text with all content, formatting, and structure preserved exactly as it appears in the document",
   "patientName": "Full Name or null",
   "dateOfBirth": "MM/DD/YYYY or null",
   "patientId": "Patient ID or null",
@@ -123,6 +124,7 @@ Do not include any additional text, explanations, or formatting outside the JSON
       }
       
       extractedData = {
+        fullText: extractedData.fullText || null,
         patientName: extractedData.patientName || null,
         dateOfBirth: extractedData.dateOfBirth || null,
         patientId: extractedData.patientId || null,
@@ -141,7 +143,7 @@ Do not include any additional text, explanations, or formatting outside the JSON
     return NextResponse.json({
       success: true,
       data: extractedData,
-      originalText: aiResponse.substring(0, 500) + (aiResponse.length > 500 ? '...' : '') // Return first 500 chars for debugging
+      originalText: extractedData.fullText || aiResponse 
     });
 
   } catch (error) {
