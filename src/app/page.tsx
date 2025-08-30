@@ -7,11 +7,12 @@ import DocumentPreview from '../components/DocumentPreview';
 import ErrorDisplay from '../components/ErrorDisplay';
 import ExtractedDataDisplay from '../components/ExtractedDataDisplay';
 import Instructions from '../components/Instructions';
+import { ExtractedData } from '../types/schemas';
 
 interface AppState {
   isUploading: boolean;
   isAnalyzing: boolean;
-  extractedData: any;
+  extractedData: ExtractedData | null;
   error: string | null;
   originalText: string | null;
   uploadedFile: File | null;

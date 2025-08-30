@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 
 const AboutPage: React.FC = () => {
@@ -28,8 +29,8 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-2xl font-bold text-neutral-800">What is PDF Analyser?</h2>
               </div>
               <p className="text-lg text-neutral-700 leading-relaxed">
-                PDF Analyser is a cutting-edge document analysis tool that uses Google's Gemini Pro AI to automatically extract, 
-                analyze, and organize information from PDFs and other document formats. Whether you're a professional, researcher, 
+                PDF Analyser is a cutting-edge document analysis tool that uses Google&apos;s Gemini Pro AI to automatically extract, 
+                analyze, and organize information from PDFs and other document formats. Whether you&apos;re a professional, researcher, 
                 or student, PDF Analyser helps you quickly understand and process complex documents with intelligent AI assistance.
               </p>
             </div>
@@ -144,7 +145,7 @@ const AboutPage: React.FC = () => {
                   <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold mr-4 shadow-lg group-hover:scale-110 transition-transform duration-200">3</div>
                   <div>
                     <h3 className="font-semibold text-neutral-900">Get Results</h3>
-                    <p className="text-neutral-600">Receive organized, structured data that's easy to understand and use</p>
+                    <p className="text-neutral-600">Receive organized, structured data that&apos;s easy to understand and use</p>
                   </div>
                 </div>
               </div>
@@ -235,12 +236,12 @@ const AboutPage: React.FC = () => {
                 <p className="text-primary-100 mb-6 text-lg">
                   Experience the power of AI-driven document analysis today
                 </p>
-                <a 
+                <Link 
                   href="/"
                   className="btn-secondary text-primary-700 bg-white hover:bg-primary-50 text-lg px-8 py-4 inline-block"
                 >
                   Try PDF Analyser Now
-                </a>
+                </Link>
               </div>
             </div>
           </div>
