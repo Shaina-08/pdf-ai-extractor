@@ -1,20 +1,14 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ExtractedDataDisplayProps } from '../types/schemas';
-import { isSupabaseConfigured } from '../lib/supabase';
 
 const ExtractedDataDisplay: React.FC<ExtractedDataDisplayProps> = ({ extractedData, originalText, uploadedFile }) => {
   const [showOriginalText, setShowOriginalText] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWarning, setShowWarning] = useState(false);
-  const [supabaseConfigured, setSupabaseConfigured] = useState(true);
   const [showCopyTooltip, setShowCopyTooltip] = useState(false);
-
-  useEffect(() => {
-    setSupabaseConfigured(isSupabaseConfigured());
-  }, []);
 
   const handleCopyText = async () => {
     try {
@@ -241,7 +235,7 @@ const ExtractedDataDisplay: React.FC<ExtractedDataDisplayProps> = ({ extractedDa
                     </div>
                     {uploadedFile && (
                       <p className="text-xs text-green-600 mt-2 ml-7">
-                        File "{uploadedFile.name}" uploaded to storage
+                        File &quot;{uploadedFile.name}&quot; uploaded to storage
                       </p>
                     )}
                   </div>

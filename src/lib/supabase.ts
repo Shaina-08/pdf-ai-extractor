@@ -53,7 +53,7 @@ export const uploadFile = async (file: File, fileName: string): Promise<string |
   if (!supabase) return null;
   
   try {
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from(STORAGE_BUCKET)
       .upload(fileName, file, {
         cacheControl: '3600',
@@ -70,7 +70,7 @@ export const uploadFile = async (file: File, fileName: string): Promise<string |
       .from(STORAGE_BUCKET)
       .getPublicUrl(fileName);
 
-    return urlData.publicUrl;
+    return urlData?.publicUrl || null;
   } catch (error) {
     console.error('File upload failed:', error);
     return null;

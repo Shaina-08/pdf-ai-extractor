@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { AnalysisRecord } from '../../lib/supabase';
 
@@ -35,7 +36,7 @@ const HistoryPage: React.FC = () => {
       } else {
         setError(result.error || 'Failed to fetch history');
       }
-    } catch (err) {
+    } catch {
       setError('Failed to fetch analysis history');
     } finally {
       setLoading(false);
@@ -166,12 +167,12 @@ const HistoryPage: React.FC = () => {
                   <p className="text-primary-700 text-lg mb-8 max-w-md mx-auto leading-relaxed">
                     Your analyzed documents will appear here, ready for review and reference.
                   </p>
-                  <a
+                  <Link
                     href="/#upload"
                     className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-lg px-8 py-4 rounded-xl font-semibold hover:from-primary-700 hover:to-secondary-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
                   >
                     Start Your First Analysis
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

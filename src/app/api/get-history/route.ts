@@ -17,7 +17,10 @@ interface QueryParams {
 }
 
 function validateQueryParams(searchParams: URLSearchParams): Required<Pick<QueryParams, 'page' | 'limit'>> & Partial<QueryParams> {
-  const params: any = {};
+  const params: Required<Pick<QueryParams, 'page' | 'limit'>> & Partial<QueryParams> = {
+    page: 1,
+    limit: 20
+  };
   
   const page = parseInt(searchParams.get('page') || '1');
   params.page = page > 0 ? page : 1;
