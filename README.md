@@ -1,12 +1,12 @@
 # Medical Document Analyzer
 
-A Next.js application that uses Google's Gemini AI to extract patient information directly from PDF/TXT documents. The application can identify patient names and dates of birth from medical documents, even when the information appears in random locations within the PDF/TXT.
+A Next.js application that uses Google's Gemini AI to extract patient information directly from PDF documents. The application can identify patient names and dates of birth from medical documents, even when the information appears in random locations within the PDF.
 ✨ Handwritten text in scanned PDFs is supported.
 
 ## Features
 
-- 📄 PDF/TXT file upload with drag-and-drop support
-- 🤖 AI-powered direct PDF/TXT analysis using Gemini
+- 📄 PDF file upload with drag-and-drop support
+- 🤖 AI-powered direct PDF analysis using Gemini
 - 🎯 Automatic patient name and date of birth detection
 - 📱 Responsive, modern UI with Tailwind CSS
 - ⚡ Real-time processing and results display
@@ -43,13 +43,13 @@ A Next.js application that uses Google's Gemini AI to extract patient informatio
 
 ## Usage
 
-1. **Upload a PDF/TXT:** Drag and drop a PDF/TXT/TXT file onto the upload area or click to browse
+1. **Upload a PDF:** Drag and drop a PDF file onto the upload area or click to browse
 2. **Wait for processing:** The AI will analyze the document directly
 3. **View results:** Patient name and date of birth will be displayed in a clean format
 
 ## How it Works
 
-1. **Direct PDF/TXT Analysis:** Gemini AI analyzes the PDF/TXT file directly without intermediate text extraction
+1. **Direct PDF Analysis:** Gemini AI analyzes the PDF file directly without intermediate text extraction
 2. **AI Processing:** Google's Gemini 1.5 Flash model processes the document to identify patient information
 3. **Flexible Detection:** The AI can find patient names and dates in various formats and locations within the document
 4. **Results Display:** Extracted information is presented in a user-friendly interface
@@ -57,11 +57,11 @@ A Next.js application that uses Google's Gemini AI to extract patient informatio
 ## API Endpoints
 
 ### POST /api/upload
-Uploads and processes a PDF/TXT file using Gemini AI.
+Uploads and processes a PDF file using Gemini AI.
 
 **Request:**
 - Content-Type: `multipart/form-data`
-- Body: PDF/TXT file
+- Body: PDF file
 
 **Response:**
 ```json
@@ -89,10 +89,10 @@ Uploads and processes a PDF/TXT file using Gemini AI.
 
 ## Troubleshooting
 
-- **"No file uploaded"** - Make sure you're uploading a PDF/TXT file
+- **"No file uploaded"** - Make sure you're uploading a PDF file
 - **"Failed to analyze document with AI"** - Check your Gemini API key and quota
-- **"File must be a PDF/TXT"** - Only PDF/TXT files are supported
-- **"File size must be less than 10MB"** - Reduce file size or compress the PDF/TXT
+- **"File must be a PDF"** - Only PDF files are supported
+- **"File size must be less than 10MB"** - Reduce file size or compress the PDF
 
 ## License
 
