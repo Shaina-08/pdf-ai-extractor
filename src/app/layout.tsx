@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DENTL - Medical Document Analyzer',
-  description: 'AI-powered medical document analysis and patient information extraction',
+  title: 'PDF Document Analyzer',
+  description: 'AI-powered pdf document analysis and information extraction',
 };
 
 export default function RootLayout({
