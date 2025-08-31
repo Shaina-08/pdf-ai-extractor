@@ -116,17 +116,17 @@ const DocumentAnalyzerContainer: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-neutral-800 mb-2">
+      <div className="text-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-2">
           Medical Document Analyzer
         </h1>
-        <p className="text-lg text-neutral-600">
+        <p className="text-base sm:text-lg text-neutral-600">
           Upload a medical document and extract patient information with AI
         </p>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        <div className="xl:col-span-2 space-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="xl:col-span-2 space-y-4 sm:space-y-6">
           {!state.uploadedFile ? (
             <DocumentUploader
               onDrop={onDrop}
@@ -156,7 +156,7 @@ const DocumentAnalyzerContainer: React.FC = () => {
         </div>
 
         <div className="xl:col-span-1">
-          <div className="sticky top-6">
+          <div className="sticky top-4 sm:top-6">
             <Instructions
               uploadedFile={state.uploadedFile}
               isAnalyzing={state.isAnalyzing}
